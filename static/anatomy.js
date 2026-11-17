@@ -2,19 +2,19 @@ const ANATOMY_I18N = {
   en: {
     anatomy: "Anatomy curriculum", anatomyIntro: "Chapter 1 · 20 reading sections",
     notes: "Teaching notes", learningObjective: "Learning objective", nextCoverage: "Planned coverage",
-    starter: "Starter practice available", plannedPractice: "Practice planned", anatomyProgress: "Practice progress",
+    starter: "Five progressive revision questions", plannedPractice: "Practice planned", anatomyProgress: "Revision questions",
     anatomyAttempted: "attempted", anatomyCorrect: "correct on latest attempt", anatomyRead: "Textbook reading",
     foundation: "Foundation", conceptual: "Conceptual understanding", advanced: "Advanced integration",
-    anatomyClinical: "Clinical application", unattempted: "Ready", review: "Revisit", readingPage: "Printed pp.",
+    anatomyClinical: "Simple application", unattempted: "Ready", review: "Revisit", readingPage: "Printed pp.",
     anatomyBack: "All sections", anatomyStart: "Practise section", anatomyCoverage: "sections with practice",
   },
   de: {
     anatomy: "Lehrplan Anatomie", anatomyIntro: "Kapitel 1 · 20 Leseabschnitte",
     notes: "Lerntext", learningObjective: "Lernziel", nextCoverage: "Geplante Vertiefung",
-    starter: "Einstiegsübungen verfügbar", plannedPractice: "Übungen geplant", anatomyProgress: "Übungsfortschritt",
+    starter: "Fünf aufbauende Wiederholungsfragen", plannedPractice: "Übungen geplant", anatomyProgress: "Wiederholungsfragen",
     anatomyAttempted: "bearbeitet", anatomyCorrect: "zuletzt richtig", anatomyRead: "Lektüre im Lehrbuch",
     foundation: "Grundlagen", conceptual: "Zusammenhänge", advanced: "Vertiefung",
-    anatomyClinical: "Klinische Anwendung", unattempted: "Bereit", review: "Wiederholen", readingPage: "Buchseiten",
+    anatomyClinical: "Einfache Anwendung", unattempted: "Bereit", review: "Wiederholen", readingPage: "Buchseiten",
     anatomyBack: "Alle Abschnitte", anatomyStart: "Abschnitt üben", anatomyCoverage: "Abschnitte mit Übungen",
   },
 };
@@ -85,7 +85,7 @@ function renderAnatomySection(container, section, bookUrl) {
     renderView();
   };
   if (available) {
-    $("#anatomy-practice").onclick = () => startPractice("Neuroanatomy", {section: id});
+    $("#anatomy-practice").onclick = () => startPractice("Neuroanatomy", {section: id, revision: "true"});
     container.querySelectorAll("[data-anatomy-question]").forEach(button => {
       button.onclick = () => {
         questionSet = [{id: button.dataset.anatomyQuestion}];
