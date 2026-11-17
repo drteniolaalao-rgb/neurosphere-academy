@@ -1,4 +1,4 @@
-const guestData = fetch("./static/content.json").then(response => {
+const guestData = fetch("./static/content.json?v=anatomy-100").then(response => {
   if (!response.ok) throw new Error("Academy content could not be loaded.");
   return response.json();
 });
@@ -42,7 +42,7 @@ async function api(path, options = {}) {
       return {...anatomy, sections};
     }
     case "/api/questions":
-      return pool.filter(q => ["subspecialty", "topic", "kind", "section"].every(
+      return pool.filter(q => (params.get("revision") !== "true" || q.revision) && ["subspecialty", "topic", "kind", "section"].every(
         key => !params.get(key) || params.get(key) === q[key]));
     case "/api/topics": return topics;
     case "/api/flashcards": return flashcards;
