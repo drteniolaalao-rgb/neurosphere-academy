@@ -1,4 +1,4 @@
-const guestData = fetch("./static/content.json?v=anatomy-100").then(response => {
+const guestData = fetch("./static/content.json?v=anatomy-100b").then(response => {
   if (!response.ok) throw new Error("Academy content could not be loaded.");
   return response.json();
 });
