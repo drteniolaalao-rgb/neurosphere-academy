@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10283f">
+  <meta name="description" content="Alao's NeuroSphere Academy — neurosurgical learning and progress tracking.">
+  <title>Alao’s NeuroSphere</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <div id="auth-screen" hidden class="auth-shell">
+    <div class="auth-brand">
+      <div class="brand-mark">N<span>•</span></div>
+      <div>
+        <div class="brand-name">ALAO’S <b>NEUROSPHERE</b></div>
+        <div class="tagline" data-i18n="tagline">Clinical Intelligence. Neurosurgical Excellence.</div>
+      </div>
+    </div>
+    <div class="auth-card">
+      <div class="eyebrow" data-i18n="academy">NEUROSPHERE ACADEMY</div>
+      <h1 data-i18n="welcome">A clearer path through neurosurgery.</h1>
+      <p class="muted" data-i18n="authIntro">Sign in or create a local learning account to begin.</p>
+      <div class="language-row">
+        <span class="muted" data-i18n="language">Language</span>
+        <div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="de">DE</button></div>
+      </div>
+      <div class="tabs"><button id="login-tab" class="tab active" data-i18n="login">Sign in</button><button id="register-tab" class="tab" data-i18n="register">Create account</button></div>
+      <form id="auth-form">
+        <label><span data-i18n="email">Email</span><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+        <label id="name-field" class="hidden"><span data-i18n="displayName">Display name</span><input id="display-name" type="text" autocomplete="name" maxlength="80"></label>
+        <label><span data-i18n="password">Password</span><input id="password" type="password" minlength="10" autocomplete="current-password" required></label>
+        <p class="hint" data-i18n="passwordHint">Use at least 10 characters. This local MVP stores a salted password hash.</p>
+        <button class="primary full" type="submit" id="auth-submit" data-i18n="login">Sign in</button>
+      </form>
+      <div id="auth-message" class="message" role="status"></div>
+      <p class="tiny muted" data-i18n="localNotice">Prototype account only. Do not enter patient data or reuse an important password.</p>
+    </div>
+    <div class="auth-foot">© Alao’s NeuroSphere · Academy MVP · v0.1</div>
+  </div>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><div class="brand-mark small">N<span>•</span></div><div><div class="brand-name">ALAO’S <b>NEUROSPHERE</b></div><div class="tagline">Clinical Intelligence.</div></div></div>
+      <div class="side-section-label" data-i18n="workspace">WORKSPACE</div>
+      <nav id="main-nav">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span><span data-i18n="dashboard">Dashboard</span></button>
+        <button class="nav-item" data-view="practice"><span>✎</span><span data-i18n="practice">MCQ Practice</span></button>
+        <button class="nav-item" data-view="anatomy"><span>◈</span><span data-i18n="anatomy">Anatomy curriculum</span></button>
+        <button class="nav-item" data-view="topics"><span>▤</span><span data-i18n="topicReview">Topic Review</span></button>
+        <button class="nav-item" data-view="flashcards"><span>▣</span><span data-i18n="flashcards">Flashcards</span></button>
+        <button class="nav-item" data-view="mock"><span>◷</span><span data-i18n="mockExam">Mock Exam</span></button>
+        <button class="nav-item" data-view="review"><span>↺</span><span data-i18n="incorrectReview">Incorrect Review</span></button>
+      </nav>
+      <div class="side-section-label modules-label" data-i18n="modules">MODULES</div>
+      <div class="module-card active-module"><span class="module-dot"></span><div><b>NeuroSphere Academy</b><small data-i18n="availableNow">Available now</small></div></div>
+      <div class="module-card planned-module"><span class="module-dot muted-dot"></span><div><b>NeuroSphere Clinical</b><small data-i18n="planned">Planned · not validated</small></div></div>
+      <div class="sidebar-bottom"><div class="user-mini"><div class="avatar" id="avatar">N</div><div><b id="user-name">Learner</b><small id="user-email">—</small></div></div><button id="logout" hidden class="logout" data-i18n="signOut">Sign out</button></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="brand-mark small">N<span>•</span></div><b>NEUROSPHERE</b></div>
+        <div class="breadcrumb"><span data-i18n="academy">NEUROSPHERE ACADEMY</span><span>/</span><b id="current-section" data-i18n="dashboard">Dashboard</b></div>
+        <div class="top-actions"><span class="status-pill"><i></i><span data-i18n="learningMode">Learning mode</span></span><div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="de">DE</button></div></div>
+      </header>
+      <div id="content" class="content"></div>
+      <footer class="app-footer"><span>ALAO’S NEUROSPHERE · v0.1 MVP</span><span data-i18n="educationalOnly">Educational use only · Not clinical guidance</span></footer>
+    </main>
+  </div>
+  <script src="./static/anatomy.js"></script>
+  <script src="./static/guest.js"></script>
+  <script src="./static/app.js"></script>
+</body>
+</html>
